@@ -4,7 +4,7 @@
 /* eslint-disable object-shorthand */
 window.mxLanguages = window.mxLanguages || ['en'];
 
-const sanitizer = require('sanitizer');
+const sanitizer = require('src/main/webapp/js/sanitizer/sanitizer.min.js');
 const mxgraph = require('mxgraph')({
   mxImageBasePath: GF_PLUGIN.getMxImagePath(),
   mxBasePath: GF_PLUGIN.getMxBasePath(),
