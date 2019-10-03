@@ -120,13 +120,14 @@ module.exports = (grunt) => {
       },
       dist: {
         files: [{
-          cwd: 'src',
+          cwd: 'src/',
           expand: true,
-          src: ['*.js', '!mxHandler.js', "!Graph.js", "!init.js", "!utils.js", "!backup/**/*", "!__mocks__"],
+          src: ['**/*.js', '!mxHandler.js', "!Graph.js", "!init.js", "!utils.js", "!backup/**/*", "!__mocks__", "!libs/**/*"],
           dest: 'dist',
           ext: '.js',
         }],
       },
+      
     },
 
     webpack: {

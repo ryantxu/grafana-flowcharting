@@ -14,12 +14,14 @@ const mxgraph = require('mxgraph')({
 });
 
 window.BASE_PATH = window.BASE_PATH || GF_PLUGIN.getMxBasePath();
+window.GF_BASE_PATH = window.GF_BASE_PATH || GF_PLUGIN.getRootPath();
 window.RESOURCES_PATH = window.BASE_PATH || `${window.BASE_PATH}resources`;
 window.RESOURCE_BASE = window.RESOURCE_BASE || `${window.RESOURCES_PATH}/grapheditor`;
 window.STENCIL_PATH = window.STENCIL_PATH || `${window.BASE_PATH}stencils`;
 window.IMAGE_PATH = window.IMAGE_PATH || `${window.BASE_PATH}images`;
 window.STYLE_PATH = window.STYLE_PATH || `${window.BASE_PATH}styles`;
 window.CSS_PATH = window.CSS_PATH || `${window.BASE_PATH}styles`;
+window.SHAPES_PATH = window.SHAPES_PATH || `${window.GF_BASE_PATH}shapes`;;
 window.mxLanguages = window.mxLanguages || ['en'];
 
 // Put to global vars to work
