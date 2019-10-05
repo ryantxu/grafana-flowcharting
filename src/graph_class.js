@@ -111,6 +111,18 @@ window.mxUtils = window.mxUtils || mxgraph.mxUtils;
 window.mxValueChange = window.mxValueChange || mxgraph.mxValueChange;
 window.mxVertexHandler = window.mxVertexHandler || mxgraph.mxVertexHandler;
 
+// Extends mxGraph
+require('./Shapes');
+const Graph = require('./Graph')({
+  libs: 'arrows;basic;bpmn;flowchart'
+});
+Graph.handleFactory = mxGraph.handleFactory;
+Graph.createHandle = mxGraph.createHandle;
+// Specifics function for Flowcharting
+require('./Graph_over');
+window.Graph = window.Graph || Graph;
+
+
 /**
  *mxGraph interface class
  *
@@ -164,14 +176,8 @@ export default class XGraph {
    */
   initGraph() {
     u.log(1, 'XGraph.initGraph()');
-    const Graph = require('./Graph')({
-      libs: 'arrows;basic;bpmn;flowchart'
-    });
-    require('./Shapes');
-    require('./Graph_over');
     this.graph = new Graph(this.container);
     this.graph.getTooltipForCell = this.getTooltipForCell;
-
     
     // /!\ What is setPannig
     this.graph.setPanning(true);
