@@ -13,7 +13,8 @@
   height: 100%;
 }
 
-_:-ms-fullscreen, :root .flowchart-panel--legend-right .flowchart-legend {
+_:-ms-fullscreen,
+:root .flowchart-panel--legend-right .flowchart-legend {
   flex: 0 1 200px;
 }
 
@@ -81,63 +82,63 @@ _:-ms-fullscreen, :root .flowchart-panel--legend-right .flowchart-legend {
 }
 
 .flowchart-legend-icon.current::before {
-  content: "Current: ";
+  content: 'Current: ';
 }
 
 .flowchart-legend-icon.max::before {
-  content: "Max: ";
+  content: 'Max: ';
 }
 
 .flowchart-legend-icon.min::before {
-  content: "Min: ";
+  content: 'Min: ';
 }
 
 .flowchart-legend-icon.total::before {
-  content: "Total: ";
+  content: 'Total: ';
 }
 
 .flowchart-legend-icon.avg::before {
-  content: "Avg: ";
+  content: 'Avg: ';
 }
 
 .flowchart-legend-alias.current::before {
-  content: "Current: ";
+  content: 'Current: ';
 }
 
 .flowchart-legend-alias.max::before {
-  content: "Max: ";
+  content: 'Max: ';
 }
 
 .flowchart-legend-alias.min::before {
-  content: "Min: ";
+  content: 'Min: ';
 }
 
 .flowchart-legend-alias.total::before {
-  content: "Total: ";
+  content: 'Total: ';
 }
 
 .flowchart-legend-alias.avg::before {
-  content: "Avg: ";
+  content: 'Avg: ';
 }
 
 .flowchart-legend-value.current::before {
-  content: "Current: ";
+  content: 'Current: ';
 }
 
 .flowchart-legend-value.max::before {
-  content: "Max: ";
+  content: 'Max: ';
 }
 
 .flowchart-legend-value.min::before {
-  content: "Min: ";
+  content: 'Min: ';
 }
 
 .flowchart-legend-value.total::before {
-  content: "Total: ";
+  content: 'Total: ';
 }
 
 .flowchart-legend-value.avg::before {
-  content: "Avg: ";
+  content: 'Avg: ';
 }
 
 .flowchart-legend-icon .fa {
@@ -180,7 +181,7 @@ _:-ms-fullscreen, :root .flowchart-panel--legend-right .flowchart-legend {
 }
 
 .flowchart-legend-table .flowchart-legend-series--right-y .flowchart-legend-alias::after {
-  content: "(right-y)";
+  content: '(right-y)';
   padding: 0 5px;
   color: #767980;
 }
@@ -224,23 +225,23 @@ _:-ms-fullscreen, :root .flowchart-panel--legend-right .flowchart-legend {
 }
 
 .flowchart-legend-table .flowchart-legend-value.current::before {
-  content: "";
+  content: '';
 }
 
 .flowchart-legend-table .flowchart-legend-value.max::before {
-  content: "";
+  content: '';
 }
 
 .flowchart-legend-table .flowchart-legend-value.min::before {
-  content: "";
+  content: '';
 }
 
 .flowchart-legend-table .flowchart-legend-value.total::before {
-  content: "";
+  content: '';
 }
 
 .flowchart-legend-table .flowchart-legend-value.avg::before {
-  content: "";
+  content: '';
 }
 
 .flowchart-legend-table th {
