@@ -40,7 +40,7 @@ mxTooltipHandler.prototype.hideTooltip = function() {
 
 mxEvent.addMouseWheelListener = function(func, container) {
   if (null != func) {
-    let c = function(container) {
+    const c = function(container) {
       null == container && (container = window.event);
       let c;
       c = mxClient.IS_FF ? -container.detail / 2 : container.wheelDelta / 120;

@@ -168,7 +168,9 @@ export default class StateHandler {
   countStatesWithLevel(level) {
     let count = 0;
     this.states.forEach(state => {
-      if (state.getLevel() === level) { count += 1; }
+      if (state.getLevel() === level) {
+        count += 1;
+      }
     });
     return count;
   }
@@ -193,7 +195,9 @@ export default class StateHandler {
     u.log(0, 'StatesHandler.setStates() States', this.states);
     this.prepare();
     rules.forEach(rule => {
-      if (rule.states === undefined || rule.states.length === 0) { rule.states = this.getStatesForRule(rule); }
+      if (rule.states === undefined || rule.states.length === 0) {
+        rule.states = this.getStatesForRule(rule);
+      }
       rule.states.forEach(state => {
         series.forEach(serie => {
           state.setState(rule, serie);

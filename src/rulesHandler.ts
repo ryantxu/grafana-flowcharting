@@ -34,7 +34,9 @@ export default class RulesHandler {
     let index = 1;
     if (obj !== undefined && obj !== null && obj.length > 0) {
       // Fix bug of grafana 6+
-      if (obj[0].order != undefined) { obj = _.sortBy(_.sortBy(obj, o => o.order)); }
+      if (obj[0].order != undefined) {
+        obj = _.sortBy(_.sortBy(obj, o => o.order));
+      }
       obj.forEach(map => {
         const newData = {};
         const rule = new Rule(map.pattern, newData);
@@ -91,7 +93,9 @@ export default class RulesHandler {
    * @memberof RulesHandler
    */
   countRules() {
-    if (this.rules !== undefined && Array.isArray(this.rules)) { return this.rules.length; }
+    if (this.rules !== undefined && Array.isArray(this.rules)) {
+      return this.rules.length;
+    }
     return 0;
   }
 

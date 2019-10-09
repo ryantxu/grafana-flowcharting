@@ -110,7 +110,9 @@ export default class FlowchartHandler {
    * @memberof FlowchartHandler
    */
   countFlowcharts() {
-    if (this.flowcharts !== undefined && Array.isArray(this.flowcharts)) { return this.flowcharts.length; }
+    if (this.flowcharts !== undefined && Array.isArray(this.flowcharts)) {
+      return this.flowcharts.length;
+    }
     return 0;
   }
 
@@ -335,8 +337,12 @@ export default class FlowchartHandler {
    * @memberof FlowchartHandler
    */
   isMapping(objToMap) {
-    if (objToMap === undefined || objToMap == null) { return this.onMapping.active; }
-    if (this.onMapping.active === true && objToMap === this.onMapping.object) { return true; }
+    if (objToMap === undefined || objToMap == null) {
+      return this.onMapping.active;
+    }
+    if (this.onMapping.active === true && objToMap === this.onMapping.object) {
+      return true;
+    }
     return false;
   }
 
@@ -350,7 +356,9 @@ export default class FlowchartHandler {
     const urlEditor = 'https://draw.io?embed=1&spin=1&libraries=1&ui=dark';
     const editorWindow = window.open(urlEditor, 'MxGraph Editor', 'width=1280, height=720');
     window.addEventListener('message', event => {
-      if (event.origin !== 'https://www.draw.io') { return; }
+      if (event.origin !== 'https://www.draw.io') {
+        return;
+      }
       // when editor is open
       if (event.data === 'ready') {
         // send xml

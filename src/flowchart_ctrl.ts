@@ -110,8 +110,12 @@ class FlowchartCtrl extends MetricsPanelCtrl {
     if (this.panel.version === undefined && this.panel.styles !== undefined) {
       this.rulesHandler.import(this.panel.styles);
       delete this.panel.styles;
-    } else { this.rulesHandler.import(this.panel.rulesData); }
-    if (this.panel.newFlag && this.rulesHandler.countRules() === 0) { this.rulesHandler.addRule('.*'); }
+    } else {
+      this.rulesHandler.import(this.panel.rulesData);
+    }
+    if (this.panel.newFlag && this.rulesHandler.countRules() === 0) {
+      this.rulesHandler.addRule('.*');
+    }
     this.panel.rulesData = newRulesData;
 
     // FLOWCHART
@@ -120,8 +124,12 @@ class FlowchartCtrl extends MetricsPanelCtrl {
     if (this.panel.version === undefined && this.panel.flowchart !== undefined) {
       this.flowchartHandler.import([this.panel.flowchart]);
       delete this.panel.flowchart;
-    } else { this.flowchartHandler.import(this.panel.flowchartsData); }
-    if (this.panel.newFlag && this.flowchartHandler.countFlowcharts() === 0) { this.flowchartHandler.addFlowchart('Main'); }
+    } else {
+      this.flowchartHandler.import(this.panel.flowchartsData);
+    }
+    if (this.panel.newFlag && this.flowchartHandler.countFlowcharts() === 0) {
+      this.flowchartHandler.addFlowchart('Main');
+    }
     this.panel.flowchartsData = newFlowchartsData;
 
     // Versions

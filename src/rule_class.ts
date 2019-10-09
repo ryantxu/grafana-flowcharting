@@ -87,8 +87,11 @@ export default class Rule {
     this.data.shapeData = [];
     // For 0.2.0
     maps = [];
-    if (obj.shapeMaps !== undefined && obj.shapeMaps !== null && obj.shapeMaps.length > 0) { maps = obj.shapeMaps; }
-    else { maps = obj.shapeData; }
+    if (obj.shapeMaps !== undefined && obj.shapeMaps !== null && obj.shapeMaps.length > 0) {
+      maps = obj.shapeMaps;
+    } else {
+      maps = obj.shapeData;
+    }
 
     if (maps !== undefined && maps !== null && maps.length > 0) {
       maps.forEach(map => {
@@ -105,8 +108,11 @@ export default class Rule {
     this.data.textData = [];
     // For 0.2.0
     maps = [];
-    if (obj.shapeMaps !== undefined && obj.shapeMaps !== null && obj.shapeMaps.length > 0) { maps = obj.textMaps; }
-    else { maps = obj.textData; }
+    if (obj.shapeMaps !== undefined && obj.shapeMaps !== null && obj.shapeMaps.length > 0) {
+      maps = obj.textMaps;
+    } else {
+      maps = obj.textData;
+    }
     if (maps !== undefined && maps != null && maps.length > 0) {
       maps.forEach(map => {
         const newData = {};
@@ -198,8 +204,11 @@ export default class Rule {
     const copy = ref[0];
     ref[0] = ref[2];
     ref[2] = copy;
-    if (this.data.invert) { this.data.invert = false; }
-    else { this.data.invert = true; }
+    if (this.data.invert) {
+      this.data.invert = false;
+    } else {
+      this.data.invert = true;
+    }
   }
 
   //
@@ -213,10 +222,18 @@ export default class Rule {
    * @memberof Rule
    */
   toColorize(level) {
-    if (level === -1) { return false; }
-    if (this.data.colorOn === 'n') { return false; }
-    if (this.data.colorOn === 'a') { return true; }
-    if (this.data.colorOn === 'wc' && level >= 1) { return true; }
+    if (level === -1) {
+      return false;
+    }
+    if (this.data.colorOn === 'n') {
+      return false;
+    }
+    if (this.data.colorOn === 'a') {
+      return true;
+    }
+    if (this.data.colorOn === 'wc' && level >= 1) {
+      return true;
+    }
     return false;
   }
 
@@ -230,10 +247,18 @@ export default class Rule {
   toLabelize(level) {
     // if (this.data.textOn === 'wmd' && level > 0) return true;
     // if (this.data.textOn === 'wmd' && level === -1) return false;
-    if (this.data.textOn === 'wmd') { return true; }
-    if (this.data.textOn === 'n') { return false; }
-    if (this.data.textOn === 'wc' && this.getThresholdLevel(value) >= 1) { return true; }
-    if (this.data.textOn === 'co' && this.getThresholdLevel(value) >= 2) { return true; }
+    if (this.data.textOn === 'wmd') {
+      return true;
+    }
+    if (this.data.textOn === 'n') {
+      return false;
+    }
+    if (this.data.textOn === 'wc' && this.getThresholdLevel(value) >= 1) {
+      return true;
+    }
+    if (this.data.textOn === 'co' && this.getThresholdLevel(value) >= 2) {
+      return true;
+    }
     return false;
   }
 
@@ -245,8 +270,12 @@ export default class Rule {
    * @memberof Rule
    */
   toIconize(level) {
-    if (this.data.overlayIcon === false) { return false; }
-    if (this.data.overlayIcon === true && level >= 1) { return true; }
+    if (this.data.overlayIcon === false) {
+      return false;
+    }
+    if (this.data.overlayIcon === true && level >= 1) {
+      return true;
+    }
     return false;
   }
 
@@ -258,10 +287,18 @@ export default class Rule {
    * @memberof Rule
    */
   toLinkable(level) {
-    if (this.data.link === false) { return false; }
-    if (this.data.linkOn === 'n') { return false; }
-    if (this.data.linkOn === 'a') { return true; }
-    if (this.data.linkOn === 'wc' && level >= 1) { return true; }
+    if (this.data.link === false) {
+      return false;
+    }
+    if (this.data.linkOn === 'n') {
+      return false;
+    }
+    if (this.data.linkOn === 'a') {
+      return true;
+    }
+    if (this.data.linkOn === 'wc' && level >= 1) {
+      return true;
+    }
     return false;
   }
 
@@ -273,10 +310,18 @@ export default class Rule {
    * @memberof Rule
    */
   toTooltipize(level) {
-    if (this.data.tooltip === false) { return false; }
-    if (this.data.tooltipOn === 'n') { return false; }
-    if (this.data.tooltipOn === 'a') { return true; }
-    if (this.data.tooltipOn === 'wc' && level >= 1) { return true; }
+    if (this.data.tooltip === false) {
+      return false;
+    }
+    if (this.data.tooltipOn === 'n') {
+      return false;
+    }
+    if (this.data.tooltipOn === 'a') {
+      return true;
+    }
+    if (this.data.tooltipOn === 'wc' && level >= 1) {
+      return true;
+    }
     return false;
   }
 
@@ -353,7 +398,9 @@ export default class Rule {
   matchShape(pattern) {
     let found = false;
     this.shapeMaps.forEach(element => {
-      if (element.match(pattern)) { found = true; }
+      if (element.match(pattern)) {
+        found = true;
+      }
     });
     return found;
   }
@@ -385,7 +432,9 @@ export default class Rule {
   matchText(pattern) {
     let found = false;
     this.textMaps.forEach(element => {
-      if (element.match(pattern)) { found = true; }
+      if (element.match(pattern)) {
+        found = true;
+      }
     });
     return found;
   }
@@ -418,7 +467,9 @@ export default class Rule {
   matchLink(pattern) {
     let found = false;
     this.linkMaps.forEach(element => {
-      if (element.match(pattern)) { found = true; }
+      if (element.match(pattern)) {
+        found = true;
+      }
     });
     return found;
   }
@@ -510,9 +561,14 @@ export default class Rule {
    */
   getColorForLevel(level) {
     let colors = [...this.data.colors];
-    if (!this.data.invert) { colors = colors.reverse(); }
-    if (level <= 0) { return colors[0]; }
-    else if (colors[level] !== undefined) { return colors[level]; }
+    if (!this.data.invert) {
+      colors = colors.reverse();
+    }
+    if (level <= 0) {
+      return colors[0];
+    } else if (colors[level] !== undefined) {
+      return colors[level];
+    }
     return _.first(colors);
   }
 
@@ -528,26 +584,46 @@ export default class Rule {
       let thresholdLevel = 0;
       const thresholds = this.data.thresholds;
 
-      if (thresholds === undefined || thresholds.length === 0) { return -1; }
-      if (thresholds.length !== 2) { return -1; }
+      if (thresholds === undefined || thresholds.length === 0) {
+        return -1;
+      }
+      if (thresholds.length !== 2) {
+        return -1;
+      }
 
       // non invert
       if (!this.data.invert) {
         thresholdLevel = 2;
-        if (value >= thresholds[0]) { thresholdLevel = 1; }
-        if (value >= thresholds[1]) { thresholdLevel = 0; }
+        if (value >= thresholds[0]) {
+          thresholdLevel = 1;
+        }
+        if (value >= thresholds[1]) {
+          thresholdLevel = 0;
+        }
       } else {
         thresholdLevel = 0;
-        if (value >= thresholds[0]) { thresholdLevel = 1; }
-        if (value >= thresholds[1]) { thresholdLevel = 2; }
+        if (value >= thresholds[0]) {
+          thresholdLevel = 1;
+        }
+        if (value >= thresholds[1]) {
+          thresholdLevel = 2;
+        }
       }
       return thresholdLevel;
     } else if (this.data.type === 'string') {
-      if (value === this.data.stringWarning) { return 1; }
-      if (value === this.data.stringCritical) { return 2; }
+      if (value === this.data.stringWarning) {
+        return 1;
+      }
+      if (value === this.data.stringCritical) {
+        return 2;
+      }
       const formatedValue = this.getFormattedValue(value);
-      if (formatedValue === this.data.stringWarning) { return 1; }
-      if (formatedValue === this.data.stringCritical) { return 2; }
+      if (formatedValue === this.data.stringWarning) {
+        return 1;
+      }
+      if (formatedValue === this.data.stringCritical) {
+        return 2;
+      }
       return 0;
     }
     return 0;
@@ -570,14 +646,18 @@ export default class Rule {
   }
 
   getLink() {
-    if (this.data.linkParams) { return this.data.linkUrl + window.location.search; }
+    if (this.data.linkParams) {
+      return this.data.linkUrl + window.location.search;
+    }
     return this.data.linkUrl;
   }
 
   getFormattedValue(value) {
     // Number
     if (this.data.type === 'number') {
-      if (!_.isFinite(value)) { return 'Invalid Number'; }
+      if (!_.isFinite(value)) {
+        return 'Invalid Number';
+      }
       if (value === null || value === void 0) {
         return '-';
       }
@@ -594,7 +674,9 @@ export default class Rule {
       if (mappingType === 1 && this.valueMaps) {
         for (let i = 0; i < this.valueMaps.length; i += 1) {
           const map = this.valueMaps[i];
-          if (map.match(value)) { return map.getFormattedText(value); }
+          if (map.match(value)) {
+            return map.getFormattedText(value);
+          }
         }
         return value.toString();
       }
@@ -602,7 +684,9 @@ export default class Rule {
       if (mappingType === 2 && this.rangeMaps) {
         for (let i = 0; i < this.rangeMaps.length; i += 1) {
           const map = this.rangeMaps[i];
-          if (map.match(value)) { return map.getFormattedText(value); }
+          if (map.match(value)) {
+            return map.getFormattedText(value);
+          }
         }
         return value.toString();
       }
@@ -631,9 +715,13 @@ export default class Rule {
   }
 
   getReplaceText(text, FormattedValue) {
-    if (this.data.textReplace === 'content') { return FormattedValue; }
+    if (this.data.textReplace === 'content') {
+      return FormattedValue;
+    }
     const regexVal = u.stringToJsRegex(this.data.textPattern);
-    if (text.toString().match(regexVal)) { return text.toString().replace(regexVal, FormattedValue); }
+    if (text.toString().match(regexVal)) {
+      return text.toString().replace(regexVal, FormattedValue);
+    }
     return text;
   }
 
@@ -685,7 +773,9 @@ class ShapeMap {
   }
 
   match(text) {
-    if (text === undefined || text === null || text.length === 0) { return false; }
+    if (text === undefined || text === null || text.length === 0) {
+      return false;
+    }
     return u.matchString(text, this.data.pattern);
   }
 
@@ -713,7 +803,9 @@ class ShapeMap {
   }
 
   toVisible() {
-    if (this.data.hidden) { return false; }
+    if (this.data.hidden) {
+      return false;
+    }
     return true;
   }
 }
@@ -735,7 +827,9 @@ class TextMap {
   }
 
   match(text) {
-    if (text === undefined || text === null || text.length === 0) { return false; }
+    if (text === undefined || text === null || text.length === 0) {
+      return false;
+    }
     return u.matchString(text, this.data.pattern);
   }
 
@@ -780,7 +874,9 @@ class LinkMap {
   }
 
   match(text) {
-    if (text === undefined || text === null || text.length === 0) { return false; }
+    if (text === undefined || text === null || text.length === 0) {
+      return false;
+    }
     return u.matchString(text, this.data.pattern);
   }
 

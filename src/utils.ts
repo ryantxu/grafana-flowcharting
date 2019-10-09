@@ -65,7 +65,9 @@ module.exports = {
         if (diagrams.length > 0) {
           return true;
         }
-      } else { return data.indexOf('mxGraphModel') == -1; }
+      } else {
+        return data.indexOf('mxGraphModel') == -1;
+      }
     } catch (error) {
       return true;
     }
@@ -188,7 +190,9 @@ module.exports = {
       // u.log(0, `Match str=${str} pattern=${pattern}`, false);
       return false;
     }
-    if (str === pattern) { return true; }
+    if (str === pattern) {
+      return true;
+    }
     const regex = this.stringToJsRegex(pattern);
     const matching = str.toString().match(regex);
     if (matching) {

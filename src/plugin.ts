@@ -48,8 +48,12 @@ plugin.popover = function(text, tagBook, tagImage) {
   const desc = `${textEncoded}`;
   let book = '';
   let image = '';
-  if (tagBook) { book = `<a href="${url}${tagBook}" target="_blank"><i class="fa fa-book fa-fw"></i>Help</a>`; }
-  if (tagImage) { image = `<a href="${images}${tagImage}.png" target="_blank"><i class="fa fa-image fa-fw"></i>Example</a>`; }
+  if (tagBook) {
+    book = `<a href="${url}${tagBook}" target="_blank"><i class="fa fa-book fa-fw"></i>Help</a>`;
+  }
+  if (tagImage) {
+    image = `<a href="${images}${tagImage}.png" target="_blank"><i class="fa fa-image fa-fw"></i>Example</a>`;
+  }
   return `
   <div id="popover" style="display:flex;flex-wrap:wrap;width: 100%;">
     <div style="flex:1;height:100px;margin-bottom: 20px;">${desc}</div>

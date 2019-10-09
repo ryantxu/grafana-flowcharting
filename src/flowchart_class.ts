@@ -33,26 +33,56 @@ export default class Flowchart {
     u.log(1, `flowchart[${this.data.name}].import()`);
     u.log(0, `flowchart[${this.data.name}].import() obj`, obj);
     this.data.download = obj.download !== undefined ? obj.download : false;
-    if (obj.source) { this.data.type = obj.source.type; }
-    else { this.data.type = obj.type || this.data.type || 'xml'; }
-    if (obj.source) { this.data.xml = obj.source.xml.value; }
-    else { this.data.xml = obj.xml || this.data.xml || ''; }
-    if (obj.source) { this.data.url = obj.source.url.value; }
-    else { this.data.url = obj.url !== undefined ? obj.url : 'http://<source>:<port>/<pathToXml>'; }
-    if (obj.options) { this.data.zoom = obj.options.zoom; }
-    else { this.data.zoom = obj.zoom || '100%'; }
-    if (obj.options) { this.data.center = obj.options.center; }
-    else { this.data.center = obj.center !== undefined ? obj.center : true; }
-    if (obj.options) { this.data.scale = obj.options.scale; }
-    else { this.data.scale = obj.scale !== undefined ? obj.scale : true; }
-    if (obj.options) { this.data.lock = obj.options.lock; }
-    else { this.data.lock = obj.lock !== undefined ? obj.lock : true; }
-    if (obj.options) { this.data.tooltip = obj.options.tooltip; }
-    else { this.data.tooltip = obj.tooltip !== undefined ? obj.tooltip : true; }
-    if (obj.options) { this.data.grid = obj.options.grid; }
-    else { this.data.grid = obj.grid !== undefined ? obj.grid : false; }
-    if (obj.options) { this.data.bgColor = obj.options.bgColor; }
-    else { this.data.bgColor = obj.bgColor; }
+    if (obj.source) {
+      this.data.type = obj.source.type;
+    } else {
+      this.data.type = obj.type || this.data.type || 'xml';
+    }
+    if (obj.source) {
+      this.data.xml = obj.source.xml.value;
+    } else {
+      this.data.xml = obj.xml || this.data.xml || '';
+    }
+    if (obj.source) {
+      this.data.url = obj.source.url.value;
+    } else {
+      this.data.url = obj.url !== undefined ? obj.url : 'http://<source>:<port>/<pathToXml>';
+    }
+    if (obj.options) {
+      this.data.zoom = obj.options.zoom;
+    } else {
+      this.data.zoom = obj.zoom || '100%';
+    }
+    if (obj.options) {
+      this.data.center = obj.options.center;
+    } else {
+      this.data.center = obj.center !== undefined ? obj.center : true;
+    }
+    if (obj.options) {
+      this.data.scale = obj.options.scale;
+    } else {
+      this.data.scale = obj.scale !== undefined ? obj.scale : true;
+    }
+    if (obj.options) {
+      this.data.lock = obj.options.lock;
+    } else {
+      this.data.lock = obj.lock !== undefined ? obj.lock : true;
+    }
+    if (obj.options) {
+      this.data.tooltip = obj.options.tooltip;
+    } else {
+      this.data.tooltip = obj.tooltip !== undefined ? obj.tooltip : true;
+    }
+    if (obj.options) {
+      this.data.grid = obj.options.grid;
+    } else {
+      this.data.grid = obj.grid !== undefined ? obj.grid : false;
+    }
+    if (obj.options) {
+      this.data.bgColor = obj.options.bgColor;
+    } else {
+      this.data.bgColor = obj.bgColor;
+    }
     this.init();
   }
 
@@ -87,14 +117,25 @@ export default class Flowchart {
    */
   init() {
     u.log(1, `flowchart[${this.data.name}].init()`);
-    if (this.xgraph === undefined) { this.xgraph = new XGraph(this.container, this.data.type, this.getContent()); }
+    if (this.xgraph === undefined) {
+      this.xgraph = new XGraph(this.container, this.data.type, this.getContent());
+    }
     if (this.data.xml !== undefined && this.data.xml !== null) {
       this.xgraph.drawGraph();
-      if (this.data.tooltip) { this.xgraph.tooltipGraph(true); }
-      if (this.data.scale) { this.xgraph.scaleGraph(true); }
-      else { this.xgraph.zoomGraph(this.data.zoom); }
-      if (this.data.center) { this.xgraph.centerGraph(true); }
-      if (this.data.lock) { this.xgraph.lockGraph(true); }
+      if (this.data.tooltip) {
+        this.xgraph.tooltipGraph(true);
+      }
+      if (this.data.scale) {
+        this.xgraph.scaleGraph(true);
+      } else {
+        this.xgraph.zoomGraph(this.data.zoom);
+      }
+      if (this.data.center) {
+        this.xgraph.centerGraph(true);
+      }
+      if (this.data.lock) {
+        this.xgraph.lockGraph(true);
+      }
       this.stateHandler = new StateHandler(this.xgraph, this.ctrl);
     } else {
       u.log(3, 'XML Graph not defined');
@@ -113,8 +154,12 @@ export default class Flowchart {
     u.log(1, `flowchart[${this.data.name}].setStates()`);
     u.log(0, `flowchart[${this.data.name}].setStates() rules`, rules);
     u.log(0, `flowchart[${this.data.name}].setStates() series`, series);
-    if (rules === undefined) { u.log(3, "Rules shoudn't be null"); }
-    if (series === undefined) { u.log(3, "Series shoudn't be null"); }
+    if (rules === undefined) {
+      u.log(3, "Rules shoudn't be null");
+    }
+    if (series === undefined) {
+      u.log(3, "Series shoudn't be null");
+    }
     this.stateHandler.setStates(rules, series);
   }
 
@@ -126,8 +171,12 @@ export default class Flowchart {
   refresh(width, height) {
     u.log(1, `flowchart[${this.data.name}].refresh()`);
     u.log(0, `flowchart[${this.data.name}].refresh() data`, this.data);
-    if (width !== undefined && width != null) { this.setWidth(width); }
-    if (height !== undefined && height != null) { this.setHeight(height); }
+    if (width !== undefined && width != null) {
+      this.setWidth(width);
+    }
+    if (height !== undefined && height != null) {
+      this.setHeight(height);
+    }
     this.xgraph.refreshGraph(this.width, this.height);
   }
 
@@ -149,7 +198,9 @@ export default class Flowchart {
       this.xgraph.destroyGraph();
       this.xgraph = undefined;
       this.init();
-    } else { this.init(); }
+    } else {
+      this.init();
+    }
   }
 
   setLock(bool) {
@@ -158,7 +209,9 @@ export default class Flowchart {
   }
 
   lock(bool) {
-    if (bool !== undefined) { this.data.lock = bool; }
+    if (bool !== undefined) {
+      this.data.lock = bool;
+    }
     this.xgraph.lockGraph(this.data.lock);
   }
 
@@ -168,7 +221,9 @@ export default class Flowchart {
   }
 
   tooltip(bool) {
-    if (bool !== undefined) { this.data.tooltip = bool; }
+    if (bool !== undefined) {
+      this.data.tooltip = bool;
+    }
     this.xgraph.tooltipGraph(this.data.tooltip);
   }
 
@@ -184,12 +239,16 @@ export default class Flowchart {
 
   bgColor(bgColor) {
     this.data.bgColor = bgColor;
-    if (bgColor) { this.xgraph.bgGraph(bgColor); }
+    if (bgColor) {
+      this.xgraph.bgGraph(bgColor);
+    }
   }
 
   scale(bool) {
     u.log(1, 'Flowchart.scale()');
-    if (bool !== undefined) { this.data.scale = bool; }
+    if (bool !== undefined) {
+      this.data.scale = bool;
+    }
     this.xgraph.scaleGraph(this.data.scale);
   }
 
@@ -204,13 +263,17 @@ export default class Flowchart {
 
   getXml(replaceVarBool) {
     u.log(1, `flowchart[${this.data.name}].getXml()`);
-    if (!replaceVarBool) { return this.data.xml; }
+    if (!replaceVarBool) {
+      return this.data.xml;
+    }
     return this.templateSrv.replaceWithText(this.data.xml);
   }
 
   getCsv(replaceVarBool) {
     u.log(1, `flowchart[${this.data.name}].getXml()`);
-    if (!replaceVarBool) { return this.data.csv; }
+    if (!replaceVarBool) {
+      return this.data.csv;
+    }
     return this.templateSrv.replaceWithText(this.data.csv);
   }
 
@@ -226,10 +289,16 @@ export default class Flowchart {
       const content = this.loadContent(this.data.url);
       if (content !== null) {
         return content;
-      } else { return ''; }
+      } else {
+        return '';
+      }
     } else {
-      if (this.data.type === 'xml') { return this.getXml(true); }
-      if (this.data.type === 'csv') { return this.getCsv(true); }
+      if (this.data.type === 'xml') {
+        return this.getXml(true);
+      }
+      if (this.data.type === 'csv') {
+        return this.getCsv(true);
+      }
     }
   }
 
@@ -254,7 +323,9 @@ export default class Flowchart {
   }
 
   center(bool) {
-    if (bool !== undefined) { this.data.center = bool; }
+    if (bool !== undefined) {
+      this.data.center = bool;
+    }
     this.xgraph.centerGraph(this.data.center);
   }
 
@@ -264,7 +335,9 @@ export default class Flowchart {
   }
 
   zoom(percent) {
-    if (percent !== undefined) { this.data.percent = percent; }
+    if (percent !== undefined) {
+      this.data.percent = percent;
+    }
     this.xgraph.zoomGraph(this.data.percent);
   }
 
@@ -274,7 +347,9 @@ export default class Flowchart {
   }
 
   grid(bool) {
-    if (bool !== undefined) { this.data.grid = bool; }
+    if (bool !== undefined) {
+      this.data.grid = bool;
+    }
     this.xgraph.gridGraph(this.data.grid);
   }
 
@@ -299,11 +374,15 @@ export default class Flowchart {
   }
 
   decode() {
-    if (u.isencoded(this.data.xml)) { this.data.xml = u.decode(this.data.xml, true, true, true); }
+    if (u.isencoded(this.data.xml)) {
+      this.data.xml = u.decode(this.data.xml, true, true, true);
+    }
   }
 
   encode() {
-    if (!u.isencoded(this.data.xml)) { this.data.xml = u.encode(this.data.xml, true, true, true); }
+    if (!u.isencoded(this.data.xml)) {
+      this.data.xml = u.encode(this.data.xml, true, true, true);
+    }
   }
 
   getContainer() {

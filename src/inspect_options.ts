@@ -34,7 +34,9 @@ export class InspectOptionsCtrl {
   onChangeId(state) {
     if (state.newcellId !== undefined && state.cellId !== state.newcellId) {
       this.flowchartHandler.getFlowchart(0).getStateHandler().edited = true;
-      if (state.previousId === undefined) { state.previousId = state.cellId; }
+      if (state.previousId === undefined) {
+        state.previousId = state.cellId;
+      }
       state.cellId = state.newcellId;
       state.edited = true;
     }
@@ -60,7 +62,9 @@ export class InspectOptionsCtrl {
     const flowchart = this.flowchartHandler.getFlowchart(0);
     const states = flowchart.getStateHandler().getStates();
     states.forEach(state => {
-      if (state.edited) { flowchart.renameId(state.previousId, state.cellId); }
+      if (state.edited) {
+        flowchart.renameId(state.previousId, state.cellId);
+      }
     });
     flowchart.applyModel();
   }
@@ -68,8 +72,11 @@ export class InspectOptionsCtrl {
   selectCell(state) {
     const flowchart = this.flowchartHandler.getFlowchart(0);
     const xgraph = flowchart.getXGraph();
-    if (state.edited) { xgraph.selectMxCells('id', state.previousId); }
-    else { xgraph.selectMxCells('id', state.cellId); }
+    if (state.edited) {
+      xgraph.selectMxCells('id', state.previousId);
+    } else {
+      xgraph.selectMxCells('id', state.cellId);
+    }
   }
 
   unselectCell() {

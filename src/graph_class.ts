@@ -147,8 +147,11 @@ export default class XGraph {
     this.cells.attributs = {};
     this.clickBackup = undefined;
     if (type === 'xml') {
-      if (u.isencoded(definition)) { this.xmlGraph = u.decode(definition, true, true, true); }
-      else { this.xmlGraph = definition; }
+      if (u.isencoded(definition)) {
+        this.xmlGraph = u.decode(definition, true, true, true);
+      } else {
+        this.xmlGraph = definition;
+      }
     }
 
     this.initGraph();
@@ -235,8 +238,11 @@ export default class XGraph {
     };
 
     $div.css(css);
-    if (!this.scale) { this.zoomGraph(this.zoomPercent); }
-    else { this.unzoomGraph(); }
+    if (!this.scale) {
+      this.zoomGraph(this.zoomPercent);
+    } else {
+      this.unzoomGraph();
+    }
 
     this.tooltipGraph(this.tooltip);
     this.lockGraph(this.lock);
@@ -259,8 +265,11 @@ export default class XGraph {
    * @memberof XGraph
    */
   lockGraph(bool) {
-    if (bool) { this.graph.setEnabled(false); }
-    else { this.graph.setEnabled(true); }
+    if (bool) {
+      this.graph.setEnabled(false);
+    } else {
+      this.graph.setEnabled(true);
+    }
     this.lock = bool;
   }
 
@@ -271,8 +280,11 @@ export default class XGraph {
    * @memberof XGraph
    */
   tooltipGraph(bool) {
-    if (bool) { this.graph.setTooltips(true); }
-    else { this.graph.setTooltips(false); }
+    if (bool) {
+      this.graph.setTooltips(true);
+    } else {
+      this.graph.setTooltips(false);
+    }
     this.tooltip = bool;
   }
 
@@ -284,8 +296,11 @@ export default class XGraph {
    */
   centerGraph(bool) {
     this.graph.centerZoom = false;
-    if (bool) { this.graph.center(true, true); }
-    else { this.graph.center(false, false); }
+    if (bool) {
+      this.graph.center(true, true);
+    } else {
+      this.graph.center(false, false);
+    }
     this.center = bool;
   }
 
@@ -392,8 +407,11 @@ export default class XGraph {
    */
   setXmlGraph(xmlGraph) {
     u.log(1, 'XGraph.setXmlGraph()');
-    if (u.isencoded(xmlGraph)) { this.xmlGraph = u.decode(xmlGraph, true, true, true); }
-    else { this.xmlGraph = xmlGraph; }
+    if (u.isencoded(xmlGraph)) {
+      this.xmlGraph = u.decode(xmlGraph, true, true, true);
+    } else {
+      this.xmlGraph = xmlGraph;
+    }
     this.drawGraph();
   }
 
@@ -433,11 +451,15 @@ export default class XGraph {
     const result = [];
     if (prop === 'id') {
       _.each(mxcells, mxcell => {
-        if (u.matchString(mxcell.id, pattern)) { result.push(mxcell); }
+        if (u.matchString(mxcell.id, pattern)) {
+          result.push(mxcell);
+        }
       });
     } else if (prop === 'value') {
       _.each(mxcells, mxcell => {
-        if (u.matchString(mxcell.getValue(), pattern)) { result.push(mxcell); }
+        if (u.matchString(mxcell.getValue(), pattern)) {
+          result.push(mxcell);
+        }
       });
     }
     return result;
@@ -543,7 +565,9 @@ export default class XGraph {
    * @memberof XGraph
    */
   getOrignalCells(prop) {
-    if (prop === 'id' || prop === 'value') { return this.cells[prop]; }
+    if (prop === 'id' || prop === 'value') {
+      return this.cells[prop];
+    }
     // TODO: attributs
     return [];
   }
@@ -631,8 +655,12 @@ export default class XGraph {
    * @memberof XGraph
    */
   getValuePropOfMxCell(prop, mxcell) {
-    if (prop === 'id') { return this.getId(mxcell); }
-    if (prop === 'value') { return this.getLabel(mxcell); }
+    if (prop === 'id') {
+      return this.getId(mxcell);
+    }
+    if (prop === 'value') {
+      return this.getLabel(mxcell);
+    }
     return null;
   }
 
@@ -653,7 +681,9 @@ export default class XGraph {
 
   getStyleCell(mxcell, style) {
     const state = this.graph.view.getState(mxcell);
-    if (state) { return state.style[style]; }
+    if (state) {
+      return state.style[style];
+    }
     return null;
   }
 
@@ -699,7 +729,9 @@ export default class XGraph {
   setLabelCell(mxcell, text) {
     if (mxUtils.isNode(mxcell.value)) {
       const label = mxcell.value.setAttribute('label', text);
-    } else { mxcell.setValue(text); }
+    } else {
+      mxcell.setValue(text);
+    }
     return text;
   }
 
