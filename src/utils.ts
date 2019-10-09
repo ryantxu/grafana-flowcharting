@@ -60,7 +60,7 @@ module.exports = {
   isencoded(data) {
     try {
       const node = this.parseXml(data).documentElement;
-      if (node != null && node.nodeName == 'mxfile') {
+      if (node !== null && node.nodeName === 'mxfile') {
         const diagrams = node.getElementsByTagName('diagram');
         if (diagrams.length > 0) {
           return true;
@@ -78,7 +78,7 @@ module.exports = {
     try {
       const node = this.parseXml(data).documentElement;
 
-      if (node != null && node.nodeName == 'mxfile') {
+      if (node && node.nodeName === 'mxfile') {
         const diagrams = node.getElementsByTagName('diagram');
 
         if (diagrams.length > 0) {

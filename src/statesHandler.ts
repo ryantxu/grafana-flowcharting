@@ -2,7 +2,7 @@
 import State from './state_class';
 
 /**
- *States Handler class
+ * States Handler class
  *
  * @export
  * @class StateHandler
@@ -40,7 +40,7 @@ export default class StateHandler {
   }
 
   /**
-   *Return states array for a rule
+   * Return states array for a rule
    *
    * @param {Rule} rule - rule mapping
    * @returns {Array<State>}
@@ -113,7 +113,7 @@ export default class StateHandler {
     let foundState = null;
     for (let index = 0; index < this.states.length; index++) {
       const state = this.states[index];
-      if (cellId == state.cellId) {
+      if (cellId === state.cellId) {
         foundState = state;
         break;
       }

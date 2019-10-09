@@ -1,12 +1,12 @@
 /**
- *Class for state of one cell
+ * Class for state of one cell
  *
  * @export
  * @class State
  */
 export default class State {
   /**
-   *Creates an instance of State.
+   * Creates an instance of State.
    * @param {mxCell} mxcell
    * @param {XGraph} xgraph
    * @param {*} ctrl - ctrl panel
@@ -51,7 +51,7 @@ export default class State {
   }
 
   /**
-   *Define state according to 1 rule and 1 serie without apply display
+   * Define state according to 1 rule and 1 serie without apply display
    *
    * @param {Rule} rule
    * @param {Serie} serie
@@ -137,7 +137,7 @@ export default class State {
   }
 
   /**
-   *Restore initial status of state without apply display.
+   * Restore initial status of state without apply display.
    * Use applyState() to apply on graph (color, level and text)
    *
    * @memberof State
@@ -158,7 +158,7 @@ export default class State {
   }
 
   /**
-   *Flag to indicate state is matching by a rule and series
+   * Flag to indicate state is matching by a rule and series
    *
    * @returns {boolean}
    * @memberof State
@@ -168,7 +168,7 @@ export default class State {
   }
 
   /**
-   *Flag to indicate state is changed, need apply state
+   * Flag to indicate state is changed, need apply state
    *
    * @returns {boolean}
    * @memberof State
@@ -178,7 +178,6 @@ export default class State {
   }
 
   /**
-   *
    *
    * @param {string} prop - id|value
    * @returns {string} return original value of id or label of cell
@@ -195,7 +194,7 @@ export default class State {
   }
 
   /**
-   *Define color for a style
+   * Define color for a style
    *
    * @param {string} style - fillcolor|fontcolor|stroke
    * @param {string} color - html color
@@ -207,7 +206,7 @@ export default class State {
   }
 
   /**
-   *Restore initial color of cell for a style
+   * Restore initial color of cell for a style
    *
    * @param {string} style - fillcolor|fontcolor|stroke
    * @memberof State
@@ -217,7 +216,7 @@ export default class State {
   }
 
   /**
-   *Restore initial color of cell
+   * Restore initial color of cell
    *
    * @memberof State
    */
@@ -228,7 +227,7 @@ export default class State {
   }
 
   /**
-   *Return current html color for a style
+   * Return current html color for a style
    *
    * @param {string} style - fillcolor|fontcolor|stroke
    * @returns {string} HTML color
@@ -239,7 +238,7 @@ export default class State {
   }
 
   /**
-   *Return initial html color for a style
+   * Return initial html color for a style
    *
    * @param {string} style - fillcolor|fontcolor|stroke
    * @returns {string} HTML color

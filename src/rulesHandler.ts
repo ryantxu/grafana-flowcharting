@@ -8,7 +8,7 @@ import Rule from './rule_class';
  */
 export default class RulesHandler {
   /**
-   *Creates an instance of RulesHandler.
+   * Creates an instance of RulesHandler.
    * @param {*} $scope
    * @param {*} data
    * @memberof RulesHandler
@@ -100,7 +100,7 @@ export default class RulesHandler {
   }
 
   /**
-   *Redefine Order number of rules
+   * Redefine Order number of rules
    *
    * @memberof RulesHandler
    */
@@ -152,7 +152,7 @@ export default class RulesHandler {
   }
 
   /**
-   *Reduce all rules
+   * Reduce all rules
    *
    * @memberof RulesHandler
    */
